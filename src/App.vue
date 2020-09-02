@@ -72,8 +72,40 @@
       </div>
     </div>
 
-    <div class="w-full bg-light" style="height: 12vh">
+    <div class="w-full flex items-center justify-between px-3 bg-light border-t border-dark" style="height: 12vh">
+      <div class="flex items-center w-1/4">
+        <div>
+          <h1 class="text-sm text-white tracking-wide">Affection</h1>
+          <h2 class="text-xs text-lightest tracking-wide">Cigarettes after Sex</h2>
+        </div>
+        <i class="material-icons text-xl text-green mx-4">favorite</i>
+        <i class="material-icons text-xl text-lightest hover:text-white">picture_in_picture_alt</i>
+      </div>
+      <div class="flex flex-col justify-center w-2/4 items-center">
+        <div class="flex items-center">
+          <button class="mx-5 text-lightest hover:text-white"><i class="material-icons text-lg">shuffle</i></button>
+          <button class="text-lightest hover:text-white"><i class="material-icons text-lg">skip_previous</i></button>
+          <button v-on:click.prevent="playSong" class="rounded-full h-8 w-8 flex items-center justify-center mx-5 border border-lightest text-lightest hover:text-white"><i v-if="pause === false" class="material-icons">play_arrow</i><i v-if="pause === true" class="material-icons">pause</i></button>
+          <button class="text-lightest hover:text-white"><i class="material-icons text-lg">skip_next</i></button>
+          <button class="mx-5 text-lightest hover:text-white"><i class="material-icons text-lg">repeat</i></button>
+        </div>
+        <div class="w-3/4 flex items-center justify-center mt-3">
+          <p class="text-xs text-lightest mr-1">0:28</p>
+          <div class="w-full h-1 bg-dark rounded-full flex items-center">
+            <div class="h-1 rounded-full bg-green" style="width: 18%;"></div>
+            <div class="h-3 w-3 bg-white rounded-full -ml-1 shadow"></div>
+          </div>
+          <p class="text-xs text-lightest ml-1">2:40</p>
+        </div>
+      </div>
+      <div class="flex items-center w-1/4 justify-end">
+        <i class="material-icons text-lightest hover:text-white">playlist_play</i>
+        <i class="material-icons text-xl text-lightest mx-3 hover:text-white">important_devices</i>
+        <i class="material-icons text-xl text-lightest hover:text-white">volume_up</i>
+        <div class="w-20 ml-1 bg-lightest rounded-full h-1">
 
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -143,11 +175,16 @@ export default {
         { src: 'bollywood.jpg', title: 'Tollywood Rocks', artist: 'By Spotify'},
         { src: 'lofing.jpg', title: 'Lofing Meats', artist: 'By Spotify'},
         { src: 'concentration.jpg', title: 'Concentrate Art', artist: 'By Spotify'},
-      ]
+      ],
+      pause: false
     }
   },
   methods: {
-
+    playSong() {
+      this.pause = !this.pause;
+      const audio = new Audio();
+      audio.play();
+    }
   }
 }
 </script>
