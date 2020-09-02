@@ -2,9 +2,12 @@
   <div class="bg-dark h-screen">
     <div class="flex" style="height: 88vh">
       <Sidebar :pages="pages" :albums="albums" />
-      <Header />
+      
+      <div class="w-full h-full relative">
+        <Header />
 
-
+        <div></div>
+      </div>
     </div>
 
     <div class="w-full bg-light" style="height: 12vh">
