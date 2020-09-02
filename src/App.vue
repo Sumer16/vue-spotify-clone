@@ -85,7 +85,7 @@
         <div class="flex items-center">
           <button class="mx-5 text-lightest hover:text-white"><i class="material-icons text-lg">shuffle</i></button>
           <button class="text-lightest hover:text-white"><i class="material-icons text-lg">skip_previous</i></button>
-          <button v-on:click.prevent="playSong" class="rounded-full h-8 w-8 flex items-center justify-center mx-5 border border-lightest text-lightest hover:text-white"><i v-if="pause === false" class="material-icons">play_arrow</i><i v-if="pause === true" class="material-icons">pause</i></button>
+          <button v-on:click.prevent="playSong('affection.mp3')" class="rounded-full h-8 w-8 flex items-center justify-center mx-5 border border-lightest text-lightest hover:text-white"><i v-if="pause === false" class="material-icons">play_arrow</i><i v-if="pause === true" class="material-icons">pause</i></button>
           <button class="text-lightest hover:text-white"><i class="material-icons text-lg">skip_next</i></button>
           <button class="mx-5 text-lightest hover:text-white"><i class="material-icons text-lg">repeat</i></button>
         </div>
@@ -180,10 +180,12 @@ export default {
     }
   },
   methods: {
-    playSong() {
-      this.pause = !this.pause;
-      const audio = new Audio();
-      audio.play();
+    playSong(song) {
+      if(song) {
+        this.pause = !this.pause;
+        const audio = new Audio(song);
+        audio.play();
+      }
     }
   }
 }
