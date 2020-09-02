@@ -27,7 +27,7 @@
       <div class="h-px w-full bg-light my-3"></div>
     </div>
     <div class="mx-5 h-auto">
-      <div class="w-full overflow-y-scroll scroll-thumb:bg-gray-900" style="height: 23rem">
+      <div class="w-full overflow-y-scroll scroll-thumb:bg-gray-900" style="height: 26.5rem">
         <p
           v-for="album in albums"
           :key="album.name"
