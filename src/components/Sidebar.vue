@@ -45,6 +45,11 @@
 <script>
 export default {
   name: 'Sidebar',
-  props: ['pages', 'albums']
+  props: ['pages', 'albums'],
+  data() {
+    return {
+        setID: 'home',
+    }
+  }
 };
 </script>

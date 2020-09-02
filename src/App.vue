@@ -1,14 +1,10 @@
 <template>
   <div class="bg-dark h-screen">
     <div class="flex" style="height: 88vh">
-      
       <Sidebar :pages="pages" :albums="albums" />
+      <Header />
 
-      <div class="w-full h-full relative">
-        <div class="w-full sticky top-0 p-2">
 
-        </div>
-      </div>
     </div>
 
     <div class="w-full bg-light" style="height: 12vh">
@@ -19,11 +15,13 @@
 
 <script>
 import Sidebar from '@/components/Sidebar.vue'
+import Header from '@/components/Header.vue'
 
 export default {
   name: 'App',
   components: {
-    Sidebar
+    Sidebar,
+    Header
   },
   data() {
     return {
@@ -33,7 +31,6 @@ export default {
         { id: 'radio', name: 'Radio', icon: 'radio' },
         { id: 'library', name: 'Your Library', icon: 'bar_chart' },
       ],
-      setID: 'home',
       albums: [
         { name: 'drive' },
         { name: 'zhu' },
